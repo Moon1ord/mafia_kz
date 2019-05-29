@@ -1,0 +1,20 @@
+.sidebar{
+    background-color: black;
+    display: flex;
+    width: 200px;
+    height: -webkit-fill-available;
+    flex: 1;
+    position: sticky;
+    flex-flow: column;
+}
+
+.menu_button{
+    width: 200px !important;
+    height: 30px !important;
+}
+
+#toggle_button{
+    background-color: black;
+    color: azure;
+}
+
