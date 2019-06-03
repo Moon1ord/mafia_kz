@@ -1,0 +1,8 @@
+.App{
+    display: flex;
+    flex:1;
+}
+
+.display{
+    float: right;
+}
