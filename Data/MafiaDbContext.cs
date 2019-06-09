@@ -1,4 +1,5 @@
 using Microsoft.EntityFrameworkCore;
+using mafia_kz.Models;
 
 namespace mafia_kz.Models
 {
@@ -33,5 +34,7 @@ namespace mafia_kz.Models
             modelBuilder.Entity<Player>().HasAlternateKey(p => p.Login);
             modelBuilder.Entity<GamePlayer>().HasKey(gp => new {PlayerId = gp.PlayerId, GmaeId = gp.GameId});
         }
+
+        public DbSet<mafia_kz.Models.Game> Game { get; set; }
     }
 }
