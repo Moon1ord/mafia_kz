@@ -1,18 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using mafia_kz.Models;
+﻿using mafia_kz.Models;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.SpaServices.ReactDevelopmentServer;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.Logging;
-using Microsoft.Extensions.Options;
+using NSwag.AspNetCore;
 
 namespace mafia_kz
 {
@@ -51,22 +45,24 @@ namespace mafia_kz
 
             app.UseStaticFiles();
             app.UseSpaStaticFiles();
+
+            app.UseOpenApi();
+            app.UseSwaggerUi3();
+
             app.UseCors(builder => {
                 builder.AllowAnyHeader();
                 builder.AllowAnyMethod();
                 builder.AllowAnyOrigin();
             });
 
-            /*app.UseSpa(spa => {
+            app.UseSpa(spa => {
                 spa.Options.SourcePath = "mafia_front";
                 if(env.IsDevelopment()){
                     spa.UseReactDevelopmentServer(npmScript:"start");
                 }
-            });*/
-
+            });
+           
             app.UseHttpsRedirection();
-            app.UseSwagger();
-            app.UseSwaggerUi3();
             app.UseMvc();
         }
     }
