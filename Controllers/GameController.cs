@@ -1,6 +1,12 @@
+using Microsoft.AspNetCore.Mvc;
+
 namespace DefaultNamespace
 {
-    public class GameController
+    /// <summary>
+    /// Контроллер для работы с играми
+    /// </summary>
+    [Route("api/[controller]")]
+    public class GameController : Controller
     {
         
     }

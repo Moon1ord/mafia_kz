@@ -9,7 +9,19 @@ namespace mafia_kz.Models
             
         }
 
-        private DbSet<Models.Player> _players { get; set; }
+        private DbSet<Models.Player> _players;
+
+        public DbSet<Models.Player> Players
+        {
+            get { return _players; }
+            set
+            {
+                if (value != null)
+                {
+                    _players = value;
+                }
+            }
+        }
 
         public MafiaDbContext()
         {
