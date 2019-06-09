@@ -55,15 +55,18 @@ namespace mafia_kz
                 builder.AllowAnyOrigin();
             });
 
-            app.UseSpa(spa => {
-                spa.Options.SourcePath = "mafia_front";
-                if(env.IsDevelopment()){
-                    spa.UseReactDevelopmentServer(npmScript:"start");
-                }
-            });
+           
            
             app.UseHttpsRedirection();
             app.UseMvc();
+
+            app.UseSpa(spa => {
+                spa.Options.SourcePath = "mafia_front";
+                if (env.IsDevelopment())
+                {
+                    spa.UseReactDevelopmentServer(npmScript: "start");
+                }
+            });
         }
     }
 }
