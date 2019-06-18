@@ -1,12 +1,13 @@
 using Microsoft.AspNetCore.Mvc;
 using System.Threading.Tasks;
 using mafia_kz.Models;
+using System.Runtime.Serialization.Json;
 
 namespace DefaultNamespace
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class GameController : ControllerBase
+    public class GameController : Controller
     {
         private readonly MafiaDbContext _context;
 
@@ -18,7 +19,7 @@ namespace DefaultNamespace
         [HttpGet]
         public async Task<IActionResult> GetGame()
         {
-            return Ok();
+            return Json(new {test = "test123" }) ;
         }
     }
 }
