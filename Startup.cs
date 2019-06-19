@@ -28,6 +28,7 @@ namespace mafia_kz
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddRouting();
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
             services.AddDbContext<MafiaDbContext>(options => options.UseNpgsql(Configuration.
                 GetConnectionString("Mafiakz_db")));
@@ -56,15 +57,15 @@ namespace mafia_kz
                 builder.AllowAnyOrigin();
             });
 
+            app.UseHttpsRedirection();
+            app.UseMvc();
+
             app.UseSpa(spa => {
                 spa.Options.SourcePath = "mafia_front";
                 if(env.IsDevelopment()){
                     spa.UseReactDevelopmentServer(npmScript:"start");
                 }
             });
-
-            app.UseHttpsRedirection();
-            app.UseMvc();
         }
     }
 }

@@ -19,7 +19,7 @@ namespace mafia_kz.Models
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<Player>().HasAlternateKey(p => p.Login);
-            modelBuilder.Entity<GamePlayer>().HasKey(gp => new {PlayerId = gp.PlayerId, GmaeId = gp.GameId});
+            modelBuilder.Entity<GamePlayer>().HasKey(gp => new {PlayerId = gp.PlayerId, GameId = gp.GameId});
         }
     }
 }
