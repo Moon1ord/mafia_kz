@@ -1,7 +1,10 @@
+using System;
+using System.Linq;
 using Microsoft.AspNetCore.Mvc;
 using System.Threading.Tasks;
 using mafia_kz.Models;
 using System.Runtime.Serialization.Json;
+using Microsoft.EntityFrameworkCore;
 
 namespace DefaultNamespace
 {
@@ -18,8 +21,8 @@ namespace DefaultNamespace
         
         [HttpGet]
         public async Task<IActionResult> GetGame()
-        {
-            return Json(new {test = "test123" }) ;
+        {            
+            return Ok() ;
         }
     }
 }

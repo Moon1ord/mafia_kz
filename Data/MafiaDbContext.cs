@@ -9,8 +9,9 @@ namespace mafia_kz.Models
             
         }
 
-        private DbSet<Models.Player> _players { get; set; }
-
+        public DbSet<Models.Player> _players { get; set; }
+        public DbSet<Models.Game> _games { get; set; }
+        
         public MafiaDbContext()
         {
             Database.EnsureCreated();
