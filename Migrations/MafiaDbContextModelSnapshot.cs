@@ -28,7 +28,7 @@ namespace mafia_kz.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Game");
+                    b.ToTable("_games");
                 });
 
             modelBuilder.Entity("mafia_kz.Models.GamePlayer", b =>
