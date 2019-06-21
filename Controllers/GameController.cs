@@ -30,6 +30,7 @@ namespace DefaultNamespace
         {
             Game test = new Game();
             test.Game_Date = System.DateTime.Now;
+            return Ok();
         }
     }
 }
