@@ -21,5 +21,12 @@ namespace DefaultNamespace
         {
             return Json(new {test = "test123" }) ;
         }
+
+        [HttpPost]
+        public async Task<IActionResult> PostGame()
+        {
+            Game test = new Game();
+            test.Game_Date = System.DateTime.Now;
+        }
     }
 }

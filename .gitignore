@@ -1,5 +1,8 @@
+*.log
 .vs
 .vscode
 .idea
 /bin
 /obj
+/Migrations
+mafia_kz.sln

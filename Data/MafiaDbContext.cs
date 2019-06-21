@@ -10,6 +10,7 @@ namespace mafia_kz.Models
         }
 
         private DbSet<Models.Player> _players { get; set; }
+        private DbSet<Models.Game> _games { get; set}
 
         public MafiaDbContext()
         {
