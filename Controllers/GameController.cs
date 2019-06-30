@@ -25,10 +25,10 @@ namespace mafia_kz.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> PostGame(Game game)
+        public async Task<IActionResult> PostGame([FromForm] Game game)
         {
             _context._games.Add(game);
-             await _context.SaveChangesAsync();
+            await _context.SaveChangesAsync();
             return Ok();
         }
     }
