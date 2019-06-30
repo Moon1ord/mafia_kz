@@ -31,5 +31,14 @@ namespace mafia_kz.Controllers
             await _context.SaveChangesAsync();
             return Ok();
         }
+
+        [HttpGet]
+        [Route("[action]")]
+        public async Task<Game> GetGame([FromForm] int id)
+        {
+            Game game = new Game();
+            game = await _context._games.FirstOrDefaultAsync(g => g.Id == id);
+            return game;
+        }
     }
 }
