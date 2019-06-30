@@ -56,6 +56,8 @@ namespace mafia_kz.Migrations
 
                     b.Property<int>("Loose_games");
 
+                    b.Property<float>("Score");
+
                     b.Property<int>("Win_games");
 
                     b.Property<bool>("isAdmin");

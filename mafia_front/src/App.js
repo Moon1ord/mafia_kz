@@ -1,13 +1,11 @@
 import React from 'react';
-import SideBarPanel from './components/menu/sideBarPanel';
-import Display from './components/content/content_display';
 import './App.css';
+import SideBar from './components/menu/sidebar/sideBar';
 
 function App() {
   return (
     <div className="App">
-      <SideBarPanel/>
-      <Display/>
+        <SideBar/>
     </div>
   );
 }

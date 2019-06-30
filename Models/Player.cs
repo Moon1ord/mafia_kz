@@ -13,10 +13,13 @@ namespace mafia_kz.Models
         
         [Required]
         public string Login { get; set; }
+
+        public float Score { get; set; }
         
         public int Games_played { get; set; }
         public int Win_games { get; set; }
         public int Loose_games { get; set; }
+
         public bool isWinner { get; set; }
         public bool isAdmin { get; set; }
         

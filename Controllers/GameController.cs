@@ -1,12 +1,11 @@
-using System;
+using System.Collections.Generic;
 using System.Linq;
-using Microsoft.AspNetCore.Mvc;
 using System.Threading.Tasks;
 using mafia_kz.Models;
-using System.Runtime.Serialization.Json;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
-namespace DefaultNamespace
+namespace mafia_kz.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
@@ -20,16 +19,16 @@ namespace DefaultNamespace
         }
         
         [HttpGet]
-        public async Task<IActionResult> GetGame()
-        {            
-            return Ok() ;
+        public async Task<IList<Game>> GetGames()
+        {
+            return await _context._games.ToListAsync();
         }
 
         [HttpPost]
-        public async Task<IActionResult> PostGame()
+        public async Task<IActionResult> PostGame(Game game)
         {
-            Game test = new Game();
-            test.Game_Date = System.DateTime.Now;
+            _context._games.Add(game);
+             await _context.SaveChangesAsync();
             return Ok();
         }
     }
