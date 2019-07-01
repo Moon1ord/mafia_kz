@@ -1,0 +1,22 @@
+#sideMenu{
+    background-color: black;
+    width: 8vw;
+    height: 100vh;
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+}
+
+.menuButton{
+    width: 8vw;
+    color: white;
+    border: none;
+    background-color: black;
+}
+
+/*Mobile*/
+@media (max-width: 480px) {
+    #sideMenu{
+        display: none;
+    }
+}

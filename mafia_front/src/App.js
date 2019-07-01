@@ -1,11 +1,14 @@
 import React from 'react';
 import './App.css';
-import SideBar from './components/menu/sidebar/sideBar';
+import Menu from './components/menu/menu';
+import Content from './components/content/content';
+
 
 function App() {
   return (
     <div className="App">
-        <SideBar/>
+        <Menu/>
+        <Content/>
     </div>
   );
 }

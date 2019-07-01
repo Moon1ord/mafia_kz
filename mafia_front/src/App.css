@@ -1,4 +1,8 @@
 .App{
     display: flex;
-    flex: 1;
+}
+
+body, html{
+    margin: 0;
+    display: flex;
 }
