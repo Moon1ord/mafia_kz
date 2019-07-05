@@ -6,26 +6,36 @@ class GameTable extends React.Component{
     state = {
         games : []
     };
-
+    
     componentDidMount() {
+        const self = this;
         let url = "https://localhost:5001/api/game/";
-        let fetchedGames = $.get(url);
-        this.setState({
-            games: fetchedGames
-        },()=>{
-            console.log(this.state.games);
+        $.get(url, function(data){
+            self.setState({
+                games : data
+            })
         });
-    }
-
+    };
+    
+    renderTable = () => {
+        return(
+            <tbody>
+                <tr>
+                    <th>Id</th>
+                </tr>
+                    {this.state.games.map((item, index)=> {
+                        return <tr><td>{item.id}</td></tr>
+                    })}
+            </tbody>
+        )         
+    };
+    
+    
     render() {
         return (
-            <div>
-                <table border="1" className="table" id="tableOfGames">
-                    <tbody>
-                    {this.rederTableData()}
-                    </tbody>
-                </table>
-            </div>
+            <table className="table">
+                {this.renderTable()}
+            </table>
         );
     }
 }
