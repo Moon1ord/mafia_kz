@@ -2,7 +2,12 @@
     display: flex;
 }
 
-body, html{
-    margin: 0;
-    display: flex;
+#menu{
+    position: fixed;
+    top: 0;
 }
+
+#content{
+    margin-left: 10vw;
+}
+

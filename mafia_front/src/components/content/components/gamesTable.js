@@ -2,24 +2,31 @@ import React from 'react';
 import $ from "jquery";
 
 class GameTable extends React.Component{
-
-    state = {
-        games : []
-    };
     
-    componentWillMount() {
+    constructor(props){
+        super(props);
+        this.getGames = this.getGames.bind(this);
+        this.state = {
+            games : []
+        };
+    }
+    
+    getGames(){
         const self = this;
         let url = "https://localhost:5001/api/game/";
         $.get(url, function(data){
-             console.log(data);
+            console.log(data);
             self.setState({
                 games : data
             })
         });
+    }
+    
+    componentDidMount() {
+        this.getGames();
     };
     
-
-    renderTable = () => {
+    renderTable =  () => {
         return(
             <tbody>
                 <tr>

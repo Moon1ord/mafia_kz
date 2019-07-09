@@ -1,39 +1,32 @@
-#content{
-    display: flex;
-    flex-direction: column;
-    flex: 1;
-}
-
-#header{
-    width: 92vw;
-    height: 10vh;
-    background-color: brown;
-}
-
-#footer{
-    width: 92vw;
-    height: 10vh;
-    background-color: brown;
-}
-
 #mainView{
-    width: 92vw;
-    height: 80vh;
+    width: 90vw;
+    height: 100vh;
     background-color: white;
 }
+
 
 /* Mobile */
 
 @media (max-width: 480px) {
     #header{
         width: 100vw;
+        margin: 0;
     }
 
     #footer{
         width: 100vw;
+        display: inline;
     }
 
     #mainView{
         width: 100vw;
+    }
+    
+    #content{
+        margin: 0;
+    }
+    
+    .table{
+        margin-top: 10vh;
     }
 }

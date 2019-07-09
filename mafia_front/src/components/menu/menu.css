@@ -1,17 +1,18 @@
-#sideMenu{
+#menu {
     background-color: black;
-    width: 8vw;
+    width: 10vw;
     height: 100vh;
-    display: flex;
-    flex: 1;
-    flex-direction: column;
 }
 
 .menuButton{
-    width: 8vw;
+    width: 10vw;
     color: white;
     border: none;
     background-color: black;
+}
+
+#gameButton{
+    margin-top: 10vh;
 }
 
 /*Mobile*/
