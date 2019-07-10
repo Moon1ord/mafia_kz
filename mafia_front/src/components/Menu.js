@@ -1,12 +1,10 @@
 import React from 'react';
-import './menu.css';
-import GameButton from './components/sidebar';
 
 class Menu extends React.Component{
     render() {
         return (
-            <div id="menu">
-                <GameButton/>
+            <div>
+                <button onClick={this.props.createGameMethod}>create game</button>
             </div>
         );
     }

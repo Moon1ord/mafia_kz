@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -25,11 +26,12 @@ namespace mafia_kz.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> PostGame([FromForm] Game game)
+        public async Task<IList<Game>> PostGame([FromForm] Game game)
         {
             _context._games.Add(game);
             await _context.SaveChangesAsync();
-            return Ok();
+            Console.WriteLine("Saved");
+            return _context._games.ToList();
         }
 
         [HttpGet]

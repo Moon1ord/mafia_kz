@@ -1,13 +1,4 @@
 .App{
     display: flex;
+    flex-direction: row;
 }
-
-#menu{
-    position: fixed;
-    top: 0;
-}
-
-#content{
-    margin-left: 10vw;
-}
-
