@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -25,11 +26,12 @@ namespace mafia_kz.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> PostGame([FromForm] Game game)
+        public async Task<IList<Game>> PostGame([FromForm] Game game)
         {
             _context._games.Add(game);
             await _context.SaveChangesAsync();
-            return Ok();
+            Console.WriteLine("Saved");
+            return _context._games.ToList();
         }
 
         [HttpGet]
@@ -39,6 +41,16 @@ namespace mafia_kz.Controllers
             Game game = new Game();
             game = await _context._games.FirstOrDefaultAsync(g => g.Id == id);
             return game;
+        }
+
+        [HttpPost]
+        [Route("[action]")]
+        public async Task<IList<Game>> DeleteGame([FromForm] int id)
+        {
+            Game selected_game = _context._games.FirstOrDefault(g => g.Id == id);
+            _context._games.Remove(selected_game);
+            await _context.SaveChangesAsync();
+            return _context._games.ToList();
         }
     }
 }
