@@ -38,6 +38,15 @@ class App extends React.Component{
         });
     };
 
+    deleteGame = async (gameId) => {
+        const self = this;
+        let url = "https://localhost:5001/api/game/deleteGame";
+        await $.post(url, {Id : gameId}, function(){
+            console.log(gameId + " deleted");
+            self.getGames();
+        });
+    };
+
     componentDidMount() {
         this.getGames();
     }
@@ -46,8 +55,9 @@ class App extends React.Component{
         return (
             <div className="App">
                 <Menu createGameMethod={this.createGame}
-                      updateTable={this.getGames}/>
-                <Table listOfGames={this.state.games}/>
+                    updateTable={this.getGames}/>
+                <Table listOfGames={this.state.games}
+                    deleteGameMethod={this.deleteGame}/>
             </div>
         );
     }

@@ -42,5 +42,15 @@ namespace mafia_kz.Controllers
             game = await _context._games.FirstOrDefaultAsync(g => g.Id == id);
             return game;
         }
+
+        [HttpPost]
+        [Route("[action]")]
+        public async Task<IList<Game>> DeleteGame([FromForm] int id)
+        {
+            Game selected_game = _context._games.FirstOrDefault(g => g.Id == id);
+            _context._games.Remove(selected_game);
+            await _context.SaveChangesAsync();
+            return _context._games.ToList();
+        }
     }
 }

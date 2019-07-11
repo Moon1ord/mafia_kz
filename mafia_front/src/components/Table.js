@@ -2,7 +2,7 @@ import React from 'react';
 
 class Table extends React.Component{
 
-    shouldComponentUpdate(nextProps, nextState, nextContext) {
+    shouldComponentUpdate(nextProps) {
         return this.props.listOfGames !== nextProps.listOfGames;
     }
 
@@ -13,16 +13,19 @@ class Table extends React.Component{
                 <tr>
                     <th>Id</th>
                     <th>Game Date</th>
+                    <th>Actions</th>
                 </tr>
                 {this.props.listOfGames.map((item)=> {
                     return <tr key={item.id}>
                         <td>{item.id}</td>
                         <td>{item.game_Date}</td>
+                        <td><button onClick={() => 
+                            this.props.deleteGameMethod(item.id)}>Delete</button></td>
                     </tr>
                 })}
                 </tbody>
             </table>
-        )
+        );
     };
 
     render() {
