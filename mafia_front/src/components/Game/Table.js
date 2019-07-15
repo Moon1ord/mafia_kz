@@ -30,7 +30,7 @@ class Table extends React.Component{
 
     render() {
         return (
-            <div>
+            <div id="Game_Table">
                 {this.renderTable()}
             </div>
         );
