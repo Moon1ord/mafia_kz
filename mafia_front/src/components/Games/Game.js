@@ -4,7 +4,7 @@ import './Game.css';
 import GameMenu from './GameMenu';
 import Table from './Table';
 
-class Game extends React.Component{
+class Game extends React.PureComponent{
 
     constructor(props){
         super(props);
