@@ -28,7 +28,6 @@ namespace mafia_kz.Controllers
             _context._players.Add(player);
             await _context.SaveChangesAsync();
             return _context._players.ToList();
-
         }
 
         [HttpPost]
