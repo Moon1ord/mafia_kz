@@ -6,7 +6,7 @@ class Table extends React.Component{
         return this.props.listOfGames !== nextProps.listOfGames;
     }
 
-    renderTable =  () => {
+    renderTable = () => {
         return(
             <table className="table table-bordered">
                 <tbody>

@@ -39,7 +39,7 @@ class Players extends React.PureComponent{
 
     render() {
         return (
-            <div>
+            <div className="menuComponent" id="Players">
                 <PlayersMenu createPlayerMethod={this.createPlayer}/>
                 <Table listOfPlayers={this.state.players}/>
             </div>

@@ -52,7 +52,7 @@ class Game extends React.PureComponent{
 
     render() {
         return (
-            <div className="Game">
+            <div className="menuComponent" id="Game">
                 <GameMenu createGameMethod={this.createGame}
                           updateTable={this.getGames}/>
                 <Table listOfGames={this.state.games}

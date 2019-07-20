@@ -7,7 +7,7 @@ class PlayersMenu extends React.Component{
                 <p>
                     <a className="btn btn-dark" data-toggle="collapse" href="#collapsePlayers" role="button"
                        aria-expanded="false" aria-controls="collapseExample">
-                        Players
+                        options
                     </a>
                 </p>
                 <div className="collapse" id="collapsePlayers">
