@@ -48,17 +48,22 @@ namespace mafia_kz.Controllers
 
         [HttpPost]
         [Route("[action]")]
-        public async Task<IList<Game>> PutPlayerInTheGame([FromForm] int id, [FromForm] string login)
+        public async Task<IList<Player>> PutPlayerInTheGame([FromForm] int game_id, [FromForm] string login)
         {
             var player = _context._players.Single(p => p.Login == login);
-            var game = _context._games.Include(g => g.PlayerGames).Single(g => g.Id == id);
+            var game = _context._games.Include(g => g.PlayerGames).Single(g => g.Id == game_id);
 
             game.PlayerGames.Add(new PlayerGame {
                 Game = game,
                 Player = player
             });
-             await _context.SaveChangesAsync();
-             return _context._games.ToList();
+
+            await _context.SaveChangesAsync();
+
+            var playersInGame = await PlayerUtils.getPlayersInGameAsync(game_id, _context);
+
+             return playersInGame;
+
         }
     }
 }
