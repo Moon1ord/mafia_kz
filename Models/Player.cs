@@ -22,7 +22,8 @@ namespace mafia_kz.Models
 
         public bool isWinner { get; set; }
         public bool isAdmin { get; set; }
-        
-        public IList<GamePlayer> GamePlayers { get; set; }
+
+        public IList<PlayerGame> PlayerGames {get;set;}
+
     }
 }

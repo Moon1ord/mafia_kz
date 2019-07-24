@@ -9,6 +9,7 @@ namespace mafia_kz.Models
         [DatabaseGenerated((DatabaseGeneratedOption.Identity))]
         public int Id { get; set; }
         public DateTime Game_Date { get; set; }
-        public IList<GamePlayer> GamePlayer { get; set; }
+
+        public IList<PlayerGame> PlayerGames {get;set;}
     }
 }

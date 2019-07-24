@@ -31,19 +31,6 @@ namespace mafia_kz.Migrations
                     b.ToTable("_games");
                 });
 
-            modelBuilder.Entity("mafia_kz.Models.GamePlayer", b =>
-                {
-                    b.Property<int>("PlayerId");
-
-                    b.Property<int>("GameId");
-
-                    b.HasKey("PlayerId", "GameId");
-
-                    b.HasIndex("GameId");
-
-                    b.ToTable("GamePlayer");
-                });
-
             modelBuilder.Entity("mafia_kz.Models.Player", b =>
                 {
                     b.Property<int>("Player_id")
@@ -71,15 +58,28 @@ namespace mafia_kz.Migrations
                     b.ToTable("_players");
                 });
 
-            modelBuilder.Entity("mafia_kz.Models.GamePlayer", b =>
+            modelBuilder.Entity("mafia_kz.Models.PlayerGame", b =>
+                {
+                    b.Property<int>("PlayerId");
+
+                    b.Property<int>("GameId");
+
+                    b.HasKey("PlayerId", "GameId");
+
+                    b.HasIndex("GameId");
+
+                    b.ToTable("_playerGames");
+                });
+
+            modelBuilder.Entity("mafia_kz.Models.PlayerGame", b =>
                 {
                     b.HasOne("mafia_kz.Models.Game", "Game")
-                        .WithMany("GamePlayer")
+                        .WithMany("PlayerGames")
                         .HasForeignKey("GameId")
                         .OnDelete(DeleteBehavior.Cascade);
 
                     b.HasOne("mafia_kz.Models.Player", "Player")
-                        .WithMany("GamePlayers")
+                        .WithMany("PlayerGames")
                         .HasForeignKey("PlayerId")
                         .OnDelete(DeleteBehavior.Cascade);
                 });

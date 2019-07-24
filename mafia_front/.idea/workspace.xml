@@ -3,13 +3,15 @@
   <component name="ChangeListManager">
     <list default="true" id="b55a9b30-1179-472b-b163-2bf837088aed" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/../Controllers/PlayerController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../Controllers/PlayerController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Data/MafiaDbContext.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../Data/MafiaDbContext.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Migrations/MafiaDbContextModelSnapshot.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../Migrations/MafiaDbContextModelSnapshot.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Models/Game.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../Models/Game.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Models/GamePlayer.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Models/Player.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../Models/Player.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../Program.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Startup.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../Startup.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/App.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Game/Game.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Games/Game.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Game/Game.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Games/Game.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Game/GameMenu.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Games/GameMenu.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Game/Table.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Games/Table.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../mafia_kz.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/../mafia_kz.csproj" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -21,7 +23,7 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300" />
+    <leaf />
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -91,9 +93,9 @@
     </option>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="90" />
-    <option name="width" value="875" />
-    <option name="height" value="753" />
+    <option name="x" value="1587" />
+    <option name="width" value="865" />
+    <option name="height" value="751" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <ConfirmationsSetting value="1" id="Add" />
@@ -103,48 +105,13 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="ProjectPane" />
       <pane id="Scope" />
-      <pane id="ProjectPane">
-        <subPane>
-          <expand>
-            <path>
-              <item name="mafia_front" type="b2602c69:ProjectViewProjectNode" />
-              <item name="mafia_front" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="mafia_front" type="b2602c69:ProjectViewProjectNode" />
-              <item name="mafia_front" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="mafia_front" type="b2602c69:ProjectViewProjectNode" />
-              <item name="mafia_front" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="components" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="mafia_front" type="b2602c69:ProjectViewProjectNode" />
-              <item name="mafia_front" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="components" type="462c0819:PsiDirectoryNode" />
-              <item name="Games" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="mafia_front" type="b2602c69:ProjectViewProjectNode" />
-              <item name="mafia_front" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="components" type="462c0819:PsiDirectoryNode" />
-              <item name="Players" type="462c0819:PsiDirectoryNode" />
-            </path>
-          </expand>
-          <select />
-        </subPane>
-      </pane>
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../fmgserv" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -202,16 +169,17 @@
       <workItem from="1563191111831" duration="8414000" />
       <workItem from="1563265420172" duration="1874000" />
       <workItem from="1563268645250" duration="1713000" />
+      <workItem from="1563893782041" duration="15000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="52638000" />
+    <option name="totallyTimeSpent" value="52653000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="-1" width="1280" height="1024" extended-state="6" />
+    <frame x="1280" y="-1" width="1680" height="1010" extended-state="6" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.24900557" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.1888956" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="npm" order="2" side_tool="true" />
       <window_info id="Favorites" order="3" side_tool="true" />
