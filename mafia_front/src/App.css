@@ -1,4 +1,8 @@
 .App{
     display: flex;
-    flex-direction: row;
+    flex-direction: column;  
+}
+
+#Menu{
+    margin-bottom: 2%;
 }

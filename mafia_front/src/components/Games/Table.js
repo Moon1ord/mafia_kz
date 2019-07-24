@@ -6,7 +6,7 @@ class Table extends React.Component{
         return this.props.listOfGames !== nextProps.listOfGames;
     }
 
-    renderTable =  () => {
+    renderTable = () => {
         return(
             <table className="table table-bordered">
                 <tbody>
@@ -30,7 +30,7 @@ class Table extends React.Component{
 
     render() {
         return (
-            <div>
+            <div id="Game_Table">
                 {this.renderTable()}
             </div>
         );

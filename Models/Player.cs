@@ -1,7 +1,11 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using System.Linq;
+using System.Threading.Tasks;
+using Microsoft.EntityFrameworkCore;
 
 namespace mafia_kz.Models
 {
@@ -22,7 +26,7 @@ namespace mafia_kz.Models
 
         public bool isWinner { get; set; }
         public bool isAdmin { get; set; }
-        
-        public IList<GamePlayer> GamePlayers { get; set; }
+
+        public IList<PlayerGame> PlayerGames {get;set;}
     }
 }

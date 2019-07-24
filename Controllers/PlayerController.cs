@@ -28,12 +28,11 @@ namespace mafia_kz.Controllers
             _context._players.Add(player);
             await _context.SaveChangesAsync();
             return _context._players.ToList();
-
         }
 
         [HttpPost]
         [Route("[action]")]
-        public async Task<IList<Player>> DeletePlayer([FromForm] String login)
+        public async Task<IList<Player>> DeletePlayer([FromForm] string login)
         {
             Player selected_player = _context._players.First(p => p.Login == login);
             _context._players.Remove(selected_player);
@@ -47,6 +46,24 @@ namespace mafia_kz.Controllers
             return await _context._players.ToListAsync();   
         }
 
+        [HttpPost]
+        [Route("[action]")]
+        public async Task<IList<Player>> PutPlayerInTheGame([FromForm] int game_id, [FromForm] string login)
+        {
+            var player = _context._players.Single(p => p.Login == login);
+            var game = _context._games.Include(g => g.PlayerGames).Single(g => g.Id == game_id);
 
+            game.PlayerGames.Add(new PlayerGame {
+                Game = game,
+                Player = player
+            });
+
+            await _context.SaveChangesAsync();
+
+            var playersInGame = await PlayerUtils.getPlayersInGameAsync(game_id, _context);
+
+             return playersInGame;
+
+        }
     }
 }

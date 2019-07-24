@@ -3,8 +3,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
+using mafia_kz.Models;
 using Microsoft.AspNetCore;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Logging;
 
@@ -15,6 +17,7 @@ namespace mafia_kz
         public static void Main(string[] args)
         {
             CreateWebHostBuilder(args).Build().Run();
+            
         }
 
         public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
