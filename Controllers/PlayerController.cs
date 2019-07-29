@@ -17,7 +17,6 @@ namespace mafia_kz.Controllers
         public PlayerController(MafiaDbContext context)
         {
             _context = context;
-
         }
 
         [HttpPost]
@@ -63,7 +62,6 @@ namespace mafia_kz.Controllers
             var playersInGame = await PlayerUtils.getPlayersInGameAsync(game_id, _context);
 
              return playersInGame;
-
         }
     }
 }

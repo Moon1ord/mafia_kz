@@ -34,8 +34,8 @@ namespace mafia_kz.Controllers
         }
 
         [HttpGet]
-        [Route("[action]")]
-        public async Task<IList<Player>> GetGame([FromForm] int id)
+        [Route("[action]/{id}")]
+        public async Task<IList<Player>> GetGame(int id)
         {
             var PlayersInGame = await PlayerUtils.getPlayersInGameAsync(id, _context);
 
