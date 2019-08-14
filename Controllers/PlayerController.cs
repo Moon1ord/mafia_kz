@@ -47,7 +47,7 @@ namespace mafia_kz.Controllers
 
         [HttpPost]
         [Route("[action]/{put_game_id}", Name = "put_game_id")]
-        public async Task<IList<Player>> PutPlayerInTheGame([FromRoute] int put_game_id, [FromForm] string login)
+        public void PutPlayerInTheGame([FromRoute] int put_game_id, [FromForm] string login)
         {
             var player = _context._players.Single(p => p.Login == login);
             var game = _context._games.Include(g => g.PlayerGames).Single(g => g.Id == put_game_id);
@@ -57,11 +57,7 @@ namespace mafia_kz.Controllers
                 Player = player
             });
 
-            await _context.SaveChangesAsync();
-
-            var playersInGame = await PlayerUtils.getPlayersInGameAsync(put_game_id, _context);
-
-             return playersInGame;
+            _context.SaveChanges();
         }
 
         [HttpGet]

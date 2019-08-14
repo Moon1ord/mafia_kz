@@ -14,5 +14,15 @@ namespace mafia_kz.Models {
 
             return playersInGame;
         }
+
+        public static IList<Player> getPlayersInGame(int game_id, MafiaDbContext context){
+            var playersInGame =  context._players.Join(context._playerGames
+            .Where(g => g.GameId == game_id),
+            p => p.Player_id,
+            pg => pg.PlayerId,
+            (p, pg) => p).ToList();
+
+            return playersInGame;
+        }
     }
 }

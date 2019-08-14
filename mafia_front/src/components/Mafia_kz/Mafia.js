@@ -22,13 +22,16 @@ class Mafia extends React.PureComponent{
         })
     };
 
-    putPlayerinGame = async() =>{
+    putPlayerinGame = () => {
+        const self = this;
         let id = window.location.pathname.split("/").pop();
         let url = ("https://localhost:5001/api/player/PutPlayerInTheGame/" + id);
         let PlayerLogin = prompt("Add player to the game " + id);
-        await $.post(url, {login : PlayerLogin});
+        $.post(url, {login : PlayerLogin}).done(function(){
+            console.log('check callback');
+            self.getPlayers();
+        })
 
-        this.getPlayers();
     };
 
     componentDidMount(){
