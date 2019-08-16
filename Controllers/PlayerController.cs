@@ -64,7 +64,8 @@ namespace mafia_kz.Controllers
         [Route("[action]/{id}", Name = "id")]
         public async Task<IList<Player>> GetPlayersInGame([FromRoute] int id)
         {
-            return await PlayerUtils.getPlayersInGameAsync(id, _context);
+            var players_in_game = await PlayerUtils.getPlayersInGameAsync(id, _context);
+            return players_in_game;
         }
     }
 }
