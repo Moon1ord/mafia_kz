@@ -17,7 +17,6 @@ namespace mafia_kz.Controllers
         public PlayerController(MafiaDbContext context)
         {
             _context = context;
-
         }
 
         [HttpPost]
@@ -47,23 +46,26 @@ namespace mafia_kz.Controllers
         }
 
         [HttpPost]
-        [Route("[action]")]
-        public async Task<IList<Player>> PutPlayerInTheGame([FromForm] int game_id, [FromForm] string login)
+        [Route("[action]/{put_game_id}", Name = "put_game_id")]
+        public void PutPlayerInTheGame([FromRoute] int put_game_id, [FromForm] string login)
         {
             var player = _context._players.Single(p => p.Login == login);
-            var game = _context._games.Include(g => g.PlayerGames).Single(g => g.Id == game_id);
+            var game = _context._games.Include(g => g.PlayerGames).Single(g => g.Id == put_game_id);
 
             game.PlayerGames.Add(new PlayerGame {
                 Game = game,
                 Player = player
             });
 
-            await _context.SaveChangesAsync();
+            _context.SaveChanges();
+        }
 
-            var playersInGame = await PlayerUtils.getPlayersInGameAsync(game_id, _context);
-
-             return playersInGame;
-
+        [HttpGet]
+        [Route("[action]/{id}", Name = "id")]
+        public async Task<IList<Player>> GetPlayersInGame([FromRoute] int id)
+        {
+            var players_in_game = await PlayerUtils.getPlayersInGameAsync(id, _context);
+            return players_in_game;
         }
     }
 }

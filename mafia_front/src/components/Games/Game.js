@@ -3,6 +3,9 @@ import $ from "jquery";
 import './Game.css';
 import GameMenu from './GameMenu';
 import Table from './Table';
+import {Redirect} from 'react-router-dom';
+import { Route, Switch } from "react-router-dom";
+import { Link } from 'react-router-dom/cjs/react-router-dom.min';
 
 class Game extends React.PureComponent{
 
@@ -46,6 +49,16 @@ class Game extends React.PureComponent{
         });
     };
 
+
+    getGameById = async (gameId) => {
+        let url = 'https://localhost:5001/api/game/getgame/' + gameId;
+        await $.get(url, function(data){
+            console.log(data);
+        });
+        
+        return <Link to={url}>Open</Link>
+    }
+
     componentDidMount() {
         this.getGames();
     }
@@ -56,7 +69,8 @@ class Game extends React.PureComponent{
                 <GameMenu createGameMethod={this.createGame}
                           updateTable={this.getGames}/>
                 <Table listOfGames={this.state.games}
-                       deleteGameMethod={this.deleteGame}/>
+                       deleteGameMethod={this.deleteGame}
+                       getGameByIdMethod={this.getGameById}/>
             </div>
         );
     }

@@ -34,12 +34,11 @@ namespace mafia_kz.Controllers
         }
 
         [HttpGet]
-        [Route("[action]")]
-        public async Task<IList<Player>> GetGame([FromForm] int id)
+        [Route("[action]/{game_id}", Name = "game_id")]
+        public async Task<Game> GetGame([FromRoute] int game_id)
         {
-            var PlayersInGame = await PlayerUtils.getPlayersInGameAsync(id, _context);
-
-            return PlayersInGame;
+            var SelectedGame = await _context._games.FirstAsync(g => g.Id == game_id);
+            return SelectedGame;
         }
 
         [HttpPost]
