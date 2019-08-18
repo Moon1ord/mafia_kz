@@ -1,5 +1,5 @@
 import React from 'react';
-import {BrowserRouter, Link, Route, Switch, Redirect} from 'react-router-dom';
+import {BrowserRouter, Link, Route, Switch} from 'react-router-dom';
 import Mafia from '../Mafia_kz/Mafia';
 
 class Table extends React.Component{
@@ -25,7 +25,12 @@ class Table extends React.Component{
                         <td>
                             <button onClick={() => 
                             this.props.deleteGameMethod(item.id)}>Delete</button>
-                            <Link to={'/api/game/getgame/' + item.id}> Redirect</Link>
+                            <Link to={{
+                                pathname : '/api/game/getgame/' + item.id,
+                                state : {
+                                    game_id : item.id
+                                }}
+                            }>Redirect</Link>
                         </td>
                 </tr>
                     })}
@@ -33,7 +38,8 @@ class Table extends React.Component{
                 </table>
                     
                 <Switch>
-                    <Route path={'/api/game/getgame/:gameId'} component={Mafia}></Route>
+                    <Route path={'/api/game/getgame/:gameId'} 
+                    component={Mafia}/>
                 </Switch>
             </BrowserRouter>
         );

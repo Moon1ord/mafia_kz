@@ -3,8 +3,6 @@ import $ from "jquery";
 import './Game.css';
 import GameMenu from './GameMenu';
 import Table from './Table';
-import {Redirect} from 'react-router-dom';
-import { Route, Switch } from "react-router-dom";
 import { Link } from 'react-router-dom/cjs/react-router-dom.min';
 
 class Game extends React.PureComponent{
