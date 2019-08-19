@@ -27,10 +27,10 @@ class Game extends React.PureComponent{
         );
     };
 
-    getGames = async () => {
+    getGames = async() => {
         const self = this;
         let url = "https://localhost:5001/api/game/";
-        $.get(url, function(data){
+        await $.get(url, function(data){
             console.log(data);
             self.setState({
                 games : data
@@ -38,12 +38,13 @@ class Game extends React.PureComponent{
         });
     };
 
-    deleteGame = async (gameId) => {
+    deleteGame = async(gameId) => {
         const self = this;
         let url = "https://localhost:5001/api/game/deleteGame";
         await $.post(url, {Id : gameId}, function(){
             console.log(gameId + " deleted");
             self.getGames();
+            $('#Mafia').hide();
         });
     };
 
@@ -54,7 +55,6 @@ class Game extends React.PureComponent{
             console.log(data);
         });
         
-        return <Link to={url}>Open</Link>
     }
 
     componentDidMount() {

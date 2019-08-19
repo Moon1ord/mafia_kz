@@ -1,6 +1,7 @@
 import React from 'react';
 import {BrowserRouter, Link, Route, Switch} from 'react-router-dom';
 import Mafia from '../Mafia_kz/Mafia';
+import $ from 'jquery';
 
 class Table extends React.Component{
 
@@ -23,14 +24,14 @@ class Table extends React.Component{
                         <td>{item.id}</td>
                         <td>{item.game_Date}</td>
                         <td>
-                            <button onClick={() => 
+                            <button className='btn btn-link' onClick={() => 
                             this.props.deleteGameMethod(item.id)}>Delete</button>
                             <Link to={{
                                 pathname : '/api/game/getgame/' + item.id,
                                 state : {
                                     game_id : item.id
                                 }}
-                            }>Redirect</Link>
+                            } onClick={() => {$('#Mafia').show();}}>Open</Link>
                         </td>
                 </tr>
                     })}
