@@ -67,5 +67,14 @@ namespace mafia_kz.Controllers
             var players_in_game = await PlayerUtils.getPlayersInGameAsync(id, _context);
             return players_in_game;
         }
+
+        [HttpPost]
+        [Route("[action]")]
+        public void DeletePlayerFromGame([FromForm] int gameId, [FromForm] int player_id)
+        {
+            var game = _context._playerGames.Single(pg => pg.GameId == gameId && pg.PlayerId == player_id);
+            _context._playerGames.Remove(game);
+            _context.SaveChanges();
+        }
     }
 }
