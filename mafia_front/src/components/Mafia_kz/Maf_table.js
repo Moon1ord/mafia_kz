@@ -8,10 +8,14 @@ class MafTable extends React.Component{
                 <tbody>
                 <tr>
                     <th>Login</th>
+                    <th>Actions</th>
                 </tr>
                 {this.props.listOfPlayers.map((item)=> {
                     return <tr key={item.player_id}>
                         <td>{item.login}</td>
+                        <td>
+                            <button onClick={() => {this.props.removePlayer(item.player_id)}}>Remove</button>
+                        </td>
                     </tr>
                 })}
                 </tbody>
@@ -21,7 +25,7 @@ class MafTable extends React.Component{
 
     render(){
         return(
-            <div>
+            <div id='maf_table'>
                 {this.renderTable()}
             </div>
         )

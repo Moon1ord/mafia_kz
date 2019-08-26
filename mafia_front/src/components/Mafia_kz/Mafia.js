@@ -14,6 +14,11 @@ class Mafia extends React.PureComponent{
         }
     }
 
+    toggleMafia = () => {
+        $('#Mafia').hide(); 
+        $('#game_table').show();
+    }
+
     getPlayers = async() => {
         const self = this;
         let id = this.state.game_id;
@@ -35,6 +40,15 @@ class Mafia extends React.PureComponent{
         });
     };
 
+    removePlayerFromGame = async(player_id) => {
+        let url = "https://localhost:5001/api/player/DeletePlayerFromGame/";
+        const self = this;
+        let game_id = this.state.game_id;
+        console.log(player_id + ' ' + game_id);
+        await $.post(url, {gameId : game_id, playerId : player_id });
+        this.getPlayers();
+    }
+
     componentWillReceiveProps(nextProps){
         const self = this;
         if(this.props.location.game_id !== nextProps.location.state.game_id){
@@ -54,7 +68,9 @@ class Mafia extends React.PureComponent{
         return(
             <div id="Mafia">
                 <button onClick={this.putPlayerinGame}>Add Player</button>
-                    <MafTable listOfPlayers={this.state.maf_players}/>  
+                <button onClick={this.toggleMafia}>Close</button>
+                    <MafTable listOfPlayers={this.state.maf_players}
+                    removePlayer={this.removePlayerFromGame}/>  
             </div>
         );
     }

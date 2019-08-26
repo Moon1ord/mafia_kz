@@ -12,7 +12,7 @@ class Table extends React.Component{
     renderTable = () => {
         return(
             <BrowserRouter>
-                <table className="table table-bordered">
+                <table className=" table table-bordered" id="game_table">
                 <tbody>
                 <tr>
                     <th>Id</th>
@@ -31,7 +31,7 @@ class Table extends React.Component{
                                 state : {
                                     game_id : item.id
                                 }}
-                            } onClick={() => {$('#Mafia').show();}}>Open</Link>
+                            } onClick={() => {$('#Mafia').show(); $('#game_table').hide();}}>Open</Link>
                         </td>
                 </tr>
                     })}

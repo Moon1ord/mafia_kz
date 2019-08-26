@@ -70,9 +70,9 @@ namespace mafia_kz.Controllers
 
         [HttpPost]
         [Route("[action]")]
-        public void DeletePlayerFromGame([FromForm] int gameId, [FromForm] int player_id)
+        public void DeletePlayerFromGame([FromForm] int gameId, [FromForm] int playerId)
         {
-            var game = _context._playerGames.Single(pg => pg.GameId == gameId && pg.PlayerId == player_id);
+            var game = _context._playerGames.Single(pg => pg.GameId == gameId && pg.PlayerId == playerId);
             _context._playerGames.Remove(game);
             _context.SaveChanges();
         }
