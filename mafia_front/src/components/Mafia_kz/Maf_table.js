@@ -27,6 +27,7 @@ class MafTable extends React.Component{
         return(
             <div id='maf_table'>
                 {this.renderTable()}
+                <button id='start_button'>Start Game</button>
             </div>
         )
     }

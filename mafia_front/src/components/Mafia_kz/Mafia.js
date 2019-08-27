@@ -42,7 +42,6 @@ class Mafia extends React.PureComponent{
 
     removePlayerFromGame = async(player_id) => {
         let url = "https://localhost:5001/api/player/DeletePlayerFromGame/";
-        const self = this;
         let game_id = this.state.game_id;
         console.log(player_id + ' ' + game_id);
         await $.post(url, {gameId : game_id, playerId : player_id });
@@ -70,7 +69,8 @@ class Mafia extends React.PureComponent{
                 <button onClick={this.putPlayerinGame}>Add Player</button>
                 <button onClick={this.toggleMafia}>Close</button>
                     <MafTable listOfPlayers={this.state.maf_players}
-                    removePlayer={this.removePlayerFromGame}/>  
+                    removePlayer={this.removePlayerFromGame}
+                    isReadyFlag={this.state.is_ready}/>  
             </div>
         );
     }
