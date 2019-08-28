@@ -19,7 +19,7 @@ class Game extends React.PureComponent{
         const self = this;
         let url = "https://localhost:5001/api/game/";
         let now = new Date();
-        await $.post(url, {Game_Date: now.toDateString()}).done(function () {
+        await $.post(url, {Game_Date: now.toLocaleTimeString()}).done(function () {
                 self.getGames();
                 console.log('createGame finished!');
             }

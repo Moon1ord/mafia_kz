@@ -1,8 +1,17 @@
 .App{
     display: flex;
-    flex-direction: column;  
+    flex-direction: column;
+    align-items: center;  
 }
 
 #Menu{
     margin-bottom: 2%;
+    width : 100%;
+    max-width: 800px;
+    justify-content: flex-start;
+}
+
+.menuComponent{
+    width: 100%;
+    max-width: 800px;
 }

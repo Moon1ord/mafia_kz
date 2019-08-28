@@ -21,11 +21,11 @@ class Menu extends React.Component{
 
     render(){
         return(
-            <div id="Menu">
-                <button value="Game" onClick={this.togglemenu}>
+            <div id="Menu" className='navbar bg-dark'>
+                <button className='btn btn-dark' value="Game" onClick={this.togglemenu}>
                     Games
                 </button>
-                <button value="Players" onClick={this.togglemenu}>
+                <button className='btn btn-dark' value="Players" onClick={this.togglemenu}>
                     Players
                 </button>
             </div>

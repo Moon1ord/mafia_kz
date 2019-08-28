@@ -14,7 +14,7 @@ class MafTable extends React.Component{
                     return <tr key={item.player_id}>
                         <td>{item.login}</td>
                         <td>
-                            <button onClick={() => {this.props.removePlayer(item.player_id)}}>Remove</button>
+                            <button className='btn btn-link' onClick={() => {this.props.removePlayer(item.player_id)}}>Remove</button>
                         </td>
                     </tr>
                 })}

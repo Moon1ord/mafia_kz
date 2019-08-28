@@ -31,7 +31,10 @@ class Table extends React.Component{
                                 state : {
                                     game_id : item.id
                                 }}
-                            } onClick={() => {$('#Mafia').show(); $('#game_table').hide();}}>Open</Link>
+                            } onClick={() => {$('#Mafia').show(); 
+                            $('#game_table').hide(); 
+                            $('#Menu').hide();
+                            $('#Game_menu').hide();}}>Open</Link>
                         </td>
                 </tr>
                     })}

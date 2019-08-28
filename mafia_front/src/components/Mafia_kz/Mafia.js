@@ -10,24 +10,39 @@ class Mafia extends React.PureComponent{
         this.putPlayerinGame = this.putPlayerinGame.bind(this);
         this.state={
             maf_players : [],
-            game_id : this.props.location.state.game_id
+            game_id : this.props.location.state.game_id,
         }
     }
 
     toggleMafia = () => {
         $('#Mafia').hide(); 
         $('#game_table').show();
+        $('#Menu').show();
+        $('#Game_menu').show();
+        
+    }
+
+    isReady = () => {
+        if(this.state.maf_players.length === 10){
+            $('#start_button').show();
+            $('#add_player').hide();
+            return true;
+        } else {
+            $('#start_button').hide();
+            $('#add_player').show();
+            return false;
+        }
     }
 
     getPlayers = async() => {
         const self = this;
         let id = this.state.game_id;
-        let url = "https://localhost:5001/api/player/getplayersingame/" + id;        ;
+        let url = "https://localhost:5001/api/player/getplayersingame/" + id;
         await $.get(url, function(data){
             self.setState({
                 maf_players : data
             });
-        })
+        }).then(() => {this.isReady()})
     };
 
     putPlayerinGame = async() => {
@@ -59,18 +74,17 @@ class Mafia extends React.PureComponent{
         }
     }
 
-    componentWillMount(){
+    componentDidMount(){
         this.getPlayers();
     }
     
     render(){
         return(
             <div id="Mafia">
-                <button onClick={this.putPlayerinGame}>Add Player</button>
+                <button id='add_player' onClick={this.putPlayerinGame}>Add Player</button>
                 <button onClick={this.toggleMafia}>Close</button>
                     <MafTable listOfPlayers={this.state.maf_players}
-                    removePlayer={this.removePlayerFromGame}
-                    isReadyFlag={this.state.is_ready}/>  
+                    removePlayer={this.removePlayerFromGame}/>  
             </div>
         );
     }
