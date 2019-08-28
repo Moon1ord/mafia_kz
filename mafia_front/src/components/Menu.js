@@ -6,7 +6,7 @@ class Menu extends React.Component{
 
     togglemenu = (e) => {
         let menuComponents = document.getElementsByClassName('menuComponent');
-        Array.from(menuComponents).forEach(element=>{
+        Array.from(menuComponents).forEach(element => {
             if(element.id === e.target.value){
                 if($(element).is(":visible")){
                     $(element).hide();
@@ -22,10 +22,10 @@ class Menu extends React.Component{
     render(){
         return(
             <div id="Menu" className='navbar bg-dark'>
-                <button className='btn btn-dark' value="Game" onClick={this.togglemenu}>
+                <button className='btn btn-dark menu_button nav-item' value="Game" onClick={this.togglemenu}>
                     Games
                 </button>
-                <button className='btn btn-dark' value="Players" onClick={this.togglemenu}>
+                <button className='btn btn-dark menu_button nav-item' value="Players" onClick={this.togglemenu}>
                     Players
                 </button>
             </div>

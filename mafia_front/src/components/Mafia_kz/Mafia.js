@@ -82,9 +82,9 @@ class Mafia extends React.PureComponent{
         return(
             <div id="Mafia">
                 <button id='add_player' onClick={this.putPlayerinGame}>Add Player</button>
-                <button onClick={this.toggleMafia}>Close</button>
                     <MafTable listOfPlayers={this.state.maf_players}
-                    removePlayer={this.removePlayerFromGame}/>  
+                    removePlayer={this.removePlayerFromGame}/>
+                    <button onClick={this.toggleMafia}>Close</button>  
             </div>
         );
     }
